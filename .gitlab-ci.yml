@@ -1,0 +1,21 @@
+#Based on: https://www.vipinajayakumar.com/continuous-integration-of-latex-projects-with-gitlab-pages.html
+#by Vipin Ajayakumar
+
+compile_pdf:
+  stage: build
+  image: aergus/latex  # use a Docker image for LaTeX from https://hub.docker.com/
+  script: pdflatex WSB_PodstawyPrzetwarzaniaSygnalow.tex; pdflatex WSB_PodstawyPrzetwarzaniaSygnalow.tex; biber WSB_PodstawyPrzetwarzaniaSygnalow; biber WSB_PodstawyPrzetwarzaniaSygnalow; pdflatex WSB_PodstawyPrzetwarzaniaSygnalow.tex
+  artifacts:
+    paths:
+      - WSB_PodstawyPrzetwarzaniaSygnalow.pdf  # instruct GitLab to keep the main.pdf file
+
+pages:
+  stage: deploy
+  script:
+    - mkdir public  # create a folder called public
+    - cp WSB_PodstawyPrzetwarzaniaSygnalow.pdf public  # copy the pdf file into the public folder
+  artifacts:
+    paths: 
+      - public  # instruct GitLab to keep the public folder
+  only: 
+    - master  # deploy the pdf only for commits made to the master branch 
