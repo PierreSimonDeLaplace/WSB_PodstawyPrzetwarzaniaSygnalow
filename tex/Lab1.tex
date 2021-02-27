@@ -248,7 +248,7 @@ Wykorzystując funkcję \texttt{hist(y,n, norm)} można stworzyć histogramy dla
 
 Zazwyczaj jeśli chcemy wygenerować szum np. w celu dodania go do sygnału, lepiej jest wykorzystać szum o rozkładzie gaussowskim. Szum o rozkładzie normalnym jest bardzo powszechny w rzeczywistych procesach (ten fenomen tłumaczy centralne twierdzenie graniczne \url{https://en.wikipedia.org/wiki/Central_limit_theorem}). 
 
-\subsection{Operacja splotu}
+\subsection{Operacja splotu}\label{lab1/sec/convolution}
 Splot (ang. convolution) jest operacją matematyczną, podobnie jak operacje dodawania czy mnożenia. Analogicznie do operacji dodawania, gdzie bierzemy dwie liczby i~tworzymy nową (trzecią) wartość, tak samo splot ,,bierze'' dwa sygnały i~zwraca w wyniku nowy sygnał. 
 
 Operacja splotu jest wykorzystywana z~bardzo wielu obszarach nauki i~inżynierii. W teorii sterowania czy przetwarzaniu sygnałów używa się jej do filtracji danych wejściowych czy wyznaczenia odpowiedzi danego układu na zadane pobudzenie. W przetwarzaniu obrazów splot może być wykorzystany do wykrywania krawędzi czy rozmywania obrazu~\ref{lab1/fig/imageFiltering}. Wykorzystywany jest również w~sieciach neuronowych, teorii prawdopodobieństwa, fizyce i~wielu innych dziedzinach.
@@ -260,7 +260,7 @@ Splot dwóch ciągłych sygnałów opisany jest wzorem:
 \end{equation}
 Natomiast dla sygnałów dyskretnych splot definiowany jest następująco:
 \begin{equation}
-	y[n]=\sum_{k=-\infty}^{\infty}x[k]h[n-k]=\sum_{-\infty}^{\infty}h[k]x[n-k]\\ 
+	y[n]=\sum_{k=-\infty}^{\infty}x[k]h[n-k]=\sum_{k=-\infty}^{\infty}h[k]x[n-k]\\ 
 \end{equation}
 
 Obliczenie splotu najprościej mówiąc polega na obróceniu w czasie jednego z~dwóch sygnałów, następnie wymnożeniu kolejnych próbek obu sygnałów oraz ich zsumowaniu. W wyniku takiego jednego kroku (wymnożenie i~zsumowanie) otrzymujemy pierwszą wynikową próbkę splotu. W kolejnym kroku przesuwamy wcześniej obrócony sygnał o jeden krok prawo i~ponownie wykonujemy operację mnożenia i~sumowania. Operacje te powtarzamy aż kolejne wyliczane próbki będą zerowe. Animację pokazującą splot można zobaczyć na: \url{https://mathworld.wolfram.com/Convolution.html}.
