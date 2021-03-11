@@ -37,7 +37,7 @@ W wielu sytuacjach konieczne okazuje się tworzenie wektora z~użyciem operatora
 >> B = 2.^[1:4] % tworzy wektor ciagu geometrycznego o ilorazie 2
 >> B = zeros(2,4) % tworzy wektor 2x4 skladajacy sie z samych zer
 >> B = ones(3,4) % tworzy wektor 3x4 skladajacy sie z samych jedynek
->> B = linespace(3,42) % tworzy wektor 100 elementow ronomiernie rozlozonych pmiedzy wartosciami 3 i 42
+>> B = linspace(3,42) % tworzy wektor 100 elementow ronomiernie rozlozonych pmiedzy wartosciami 3 i 42
 >> B = linspace(3,42,50) % tworzy wektor 50 elementow roznomiernie rozlozonych pomierzy wartosciami 3 i 42
 \end{lstlisting}
 
@@ -65,7 +65,7 @@ W omawianych programach można korzystać z~wielu gotowych stałych i~funkcji.
 >> sin(pi/2) % wartosc pi dla argumetu pi/2
 >> log10(100) % operacje obliczania logarytmu dziesietnego
 >> mean([1 2 3 4 5 6]) % oblicza wartosc oczekiwana z wektora liczb
->> var([4 5 6 5 4 6]) % oblicza wariancje z~wektora liczb
+>> var([4 5 6 5 4 6]) % oblicza wariancje z wektora liczb
 >> min([1 2 3 5 -50])
 >> max([1 2 3 5 -50])
 \end{lstlisting}
@@ -324,7 +324,6 @@ Narysuj na współdzielonym rysunku następujące wykresy (\texttt{subplot}):
 	\item szum biały o rozkładzie normalnym (stwórz wektor dowolnej długości za pomocą funkcji \texttt{randn}),
 	\item przebieg piło-kształtny (wykorzystaj funkcję \texttt{sawtooth}),
 	\item przebieg prostokątny (wykorzystaj funkcję \texttt{square}).
-	\item przebieg trójkątny (wykorzystaj funkcję \texttt{triangle})
 \end{enumerate}
 
 \subsubsection{Histogramy wektorów liczb pseudolosowych}
