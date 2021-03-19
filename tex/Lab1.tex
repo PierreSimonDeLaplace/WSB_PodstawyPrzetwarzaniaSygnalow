@@ -226,7 +226,7 @@ Rozkład normalny:
 	p(x_0) = \frac{1}{\sqrt{2\pi\sigma^2}} exp\left[-\frac{(x_0 - \bar{x}^2)}{2\sigma^2} \right]
 \end{equation}
 
-W MATLABie/Octavie do utworzenia wektora zawierającego próbki szumu, można wykorzystać funkcję \texttt{rand} dla rozkładu równomiernego, \texttt{randn} dla rozkładu normalnego~\ref{lab1/lst/randRandnFunction}. Obie funkcje zwracają wektor liczb pseudolosowych. Wywołane z~jednym argumentem~\texttt{n}, tworzą macierz o rozmiarach \texttt{nxn}. Jeśli zostaną przekazane dwa parametry to, pierwszy z~nich odnosi się do liczby wierszy w tej macierzy, a ten drugi do liczby kolumn. 
+W programie MATLAB/GNU Octavie do utworzenia wektora zawierającego próbki szumu, można wykorzystać funkcję \texttt{rand} dla rozkładu równomiernego, \texttt{randn} dla rozkładu normalnego~\ref{lab1/lst/randRandnFunction}. Obie funkcje zwracają wektor liczb pseudolosowych. Wywołane z~jednym argumentem~\texttt{n}, tworzą macierz o rozmiarach \texttt{nxn}. Jeśli zostaną przekazane dwa parametry to, pierwszy z~nich odnosi się do liczby wierszy w tej macierzy, a ten drugi do liczby kolumn. 
 
 \begin{lstlisting}[caption=Tworzenie macierzy/wektora liczb pseudolosowych z~wykorzystaniem funkcji \texttt{rand} oraz \texttt{randn} , label=lab1/lst/randRandnFunction]
 >> rand(5)
@@ -276,18 +276,17 @@ Obliczenie splotu najprościej mówiąc polega na obróceniu w czasie jednego z~
 \end{figure}
 
 W~programie MATLAV/Octave do obliczenia splotu wykorzystuje się funkcję \texttt{conv}, która przyjmuje dwa argumenty będące wektorami dwóch splatanych sygnałów. Obliczenie splotu dwóch wektorów $A$ oraz $B$:
-\begin{equation*}
+\begin{gather*}
 	A=
 	\begin{bmatrix}
 		1 & 1 & 1
-	\end{bmatrix}
-\end{equation*}
-\begin{equation*}
+	\end{bmatrix}\\
 	B=
 	\begin{bmatrix}
 		1 & 2 & 3
 	\end{bmatrix}
-\end{equation*}
+\end{gather*}
+
 w~programie MATLAB/Octave zostało pokazane na poniższym listingu.
 \begin{lstlisting}[caption=Obliczanie splotu dwóch wektorów , label=lab1/lst/convolution]
 A = [1 1 1];

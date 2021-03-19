@@ -30,7 +30,7 @@ Aby narysować charakterystyki częstotliwościowe filtrów (zarówno FIR jak i 
 	\label{lab3/fig/freqzFunction}
 \end{figure}
 
-\subsection{Filtry o skończonej odpowiedzi impulsowej (FIR)}
+\subsection{Filtry o skończonej odpowiedzi impulsowej FIR}
 Filtry nierekursywne FIR nie posiadają sprzężenie zwrotnego. Każda próbka wyjściowa jest sumą ważoną próbek z~poprzednich chwil czasu~\ref{lab3/eq/firFilterEquation}. Na rysunku nr~\ref{lab3/fig/firFilterDirectForm} pokazano schemat blokowy filtra typu FIR. Zaznaczone na nim kwadraty z $z^{-1}$ oznaczają opóźnienie próbki o wartość jeden w dziedzinie operatora $Z$.
 
 \begin{equation}\label{lab3/eq/firFilterEquation}
@@ -147,7 +147,7 @@ Następnie z wykorzystaniem funkcji \texttt{fir1(n, Wn)} obliczono współczynni
 
 
 
-\subsection{Filtry o skończonej odpowiedzi impulsowej (IIR)}
+\subsection{Filtry o skończonej odpowiedzi impulsowej IIR}
 Filtry typu IIR są systemami rekursywnymi tzn. do obliczenia wyjścia filtra wykorzystywane są próbki wejściowe (jak w filtrach FIR) oraz poprzednie próbki wyjściowe. Inaczej mówiąc filtry te posiadają sprzężenie zwrotne. Wzór na n-tą próbkę wyjściową filtru IIR został pokazany poniżej~\ref{lab3/eq/iirFilterEquation}.
 
 \begin{equation}\label{lab3/eq/iirFilterEquation}
@@ -205,7 +205,7 @@ plot(x./pi, 10*log10(abs(y)));grid on; %x./pi because of normalization, 10*log10
 %...
 \end{lstlisting}
 
-\subsubsection{Sprawdzenie charakterystyk amplitudowych filtrów rekursywnych (IIR)}
+\subsubsection{Sprawdzenie charakterystyk amplitudowych filtrów rekursywnych IIR}
 Za pomocą funkcji programu MATLAB/Octave wyznacz charakterystyki amplitudowe kilku filtrów rekursywnych. W~pierwszej kolejności sprawdź odpowiedzi częstotliwościowe filtra Butterwortha dla różnych wartości rzędu np. $5$, $10$, $15$, częstotliwość odcięcia można ustawić na połowę częstotliwości Nyquista. Aby lepiej zaobserwować falowania w paśmie przejściowym/zaporowym oraz stromość zbocza przejściowego, charakterystyki można narysować w skali liniowej, w przeciwieństwie do poprzedniego zadania, gdzie została użyta skala logarytmiczna.
 \begin{lstlisting}
 [b1,a1] = butter(5,0.5);

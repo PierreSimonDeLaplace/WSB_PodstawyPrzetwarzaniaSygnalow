@@ -61,23 +61,34 @@ FFT pozwala na efektywne wyznaczenie szeregu Fouriera. Jest to jeden najważniej
 Przy wywołaniu funkcji \texttt{X = fft(x)} z~argumentem będącym wektorem próbek w~dziedzinie czasu zostanie zwrócony wektor liczb zespolonych o takiej samej długości co długość wektora \texttt{x}. Należy jednak mieć na uwadze, że otrzymane widmo jest symetrycznie odbite względem częstotliwości Nyquista\footnote{Częstotliwość Nyquista jest maksymalną częstotliwością sygnału, która może być odtworzona po operacji próbkowania. W~praktyce jest ona równa połowie częstotliwości próbkowania $f_N = \frac{f_S}{2}$.}. Tak więc, po wykonaniu FFT można wziąć do analizy jedynie połowę otrzymanego wektora. Następnie jeśli chcemy, aby wysokość prążków odpowiadała amplitudzie składowych sygnału konieczne jest wykonanie skalowania tzn. podzielenie próbek wektora przez długość tego wektora oraz pomnożeniu go przez dwa. Następnie do narysowania wykresu (za pomocą funkcji \texttt{plot}) należy wziąć moduł otrzymanych liczb zespolonych \texttt{plot(abs(X))}. Przykład zastosowania funkcji \texttt{fft} programu MATLAB/Octave został pokazany na listeningu~\ref{lab2/lst/fftExample}. Podczas zajęć laboratoryjnych zostanie on omówiony krok po kroku.
 
 \begin{lstlisting}[caption=Przykład użycia funkcji \texttt{fft} programu MATLAB/Octave , label=lab2/lst/fftExample]
-Fs = 1000;            % Sampling frequency                    
-T = 1/Fs;             % Sampling period       
-L = 1500;             % Length of signal
-t = (0:L-1)*T;        % Time vector
+Fs = 1000; % sampling frequency                    
+T = 1/Fs; % sampling period       
+L = 1500; % length of signal
+t = (0:L-1)*T; % time vector
 
-x = 0.7*sin(2*pi*50*t)	
-	
-X = fft(x);
-P2 = abs(X/L);
-P1 = P2(1:L/2+1);
-P1(2:end-1) = 2*P1(2:end-1);  % multiply by 2 to take into account the fact that we threw out second half of FFTX above
+y = sin(2*pi*50*t+pi/4) + 0.5*sin(2*pi*60*t); % create signal containing two components (50 and 60 [Hz])
 
-f = Fs*(0:(L/2))/L;
-plot(f,P1) 
-title('Single-Sided Amplitude Spectrum of x(t)')
+% FFT
+Y = fft(y); % calculate spectum of input signal
+Y = abs(Y/L); % take absolute value of Y (we want to plot only amplitude of the spectrum)
+Y = Y(1:L/2+1); % throw away second half of the spectrum because is repeated (all usefull information in first half), reflected via Nyquist frequency i.e. Fs/2
+Y(2:end-1) = 2*Y(2:end-1);  % multiply by 2 to take into account the fact that we threw out second half of FFT above
+
+% Plot the results
+subplot(2,1,2)
+f = Fs*(0:(L/2))/L; % create frequency vector (fft calculates spectrum from 0 to sampling frequency in this example Fs = 1000 Hz), we plot only to 500 Hz, bacuse half of the spectrum has been throw out
+plot(f,Y) 
+title('Widmo sygnaly y(t)')
 xlabel('f (Hz)')
-ylabel('|P1(f)|')
+ylabel('|Y(f)|')
+axis([0 300 0 1])
+
+subplot(2,1,1);
+plot(t,X)
+title('y(t) in time domain')
+xlabel('t (s)')
+ylabel('y(t)')
+axis([0 1.5 -1.5 1.5])
 \end{lstlisting}
 
 
