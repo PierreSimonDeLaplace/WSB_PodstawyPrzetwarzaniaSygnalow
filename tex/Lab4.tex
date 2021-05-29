@@ -133,10 +133,10 @@ Efekt aliasingu można zaobserwować również na nagraniach z kamery wideo, je�
 Na listingu~\ref{lab4/lst/interpolationExample} pokazano przykład interpolacji danych pomiarowych za pomocą dwóch metod: interpolatorem zerowego rzędu (ang. Zero Order Hold) oraz sklejanymi wielomianami Hermite'a trzeciego rzędu. Przetestuj wszystkie wymienione w podpunkcie~\ref{lab4/sec/interpolation} metody wywołując funkcję \texttt{interp1} ze zmienionym czwartym argumentem, w którym przekazywana jest metoda interpolacji.
 \subsubsection{Widmo sygnału dla różnych częstotliwości próbkowania}
 Utwórz sygnał sinusoidalny o częstotliwości $500~Hz$. Wyznacz wartości tego przebiegu dla co najmniej jeden sekundy, przyjmując częstotliwość próbkowania równą $2000~Hz$.
-\begin{lstlisting}[caption=Symulacja niedostatecznie wysokiej częstotliwości próbkowania, label=lab4/lst/recostructionOfDownsamplesSignal]
+\begin{lstlisting}[caption=Tworzenie sygnału sinusoidalnego o częstotliwości $500~Hz$ i częstotliwości próbkowania $2000~Hz$, label=lab4/lst/recostructionOfDownsamplesSignal]
 Fs = 2000;
 t1=0:1/Fs:1;
-y1=sin(2*pi*500*t1); % sinusoidal signal with 100 Hz frequency
+y1=sin(2*pi*500*t1); % sinusoidal signal with 500 Hz frequency
 \end{lstlisting}
 Wyznacz widmo tego sygnału w zakresie częstotliwości $f\in[0;\frac{f_s}{2}]$ tak jak robiliśmy to na drugich laboratoriach~\ref{lab2/lst/fftExample}. Powinieneś zaobserwować pojedynczy prążek dla częstotliwości $500~Hz$.
 
