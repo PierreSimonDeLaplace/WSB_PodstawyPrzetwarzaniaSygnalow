@@ -1,2 +1,3 @@
 # WSB Podstawy przetwarzania sygnałów laboratoria
-<a href="https://pierresimondelaplace.gitlab.io/wsb-podstawy-przetwarzania-sygnalow/WSB_PodstawyPrzetwarzaniaSygnalow.pdf">Instrukcja do laboratoriów</a>
+[![CI/CD](https://github.com/PierreSimonDeLaplace/WSB_PodstawyPrzetwarzaniaSygnalow/actions/workflows/build_and_deploy.yml/badge.svg)](https://github.com/PierreSimonDeLaplace/WSB_PodstawyPrzetwarzaniaSygnalow/actions/workflows/build_and_deploy.yml)<br>
+<a href="https://pierresimondelaplace.github.io/WSB_PodstawyPrzetwarzaniaSygnalow/Instrukcja.pdf">Instrukcja do laboratoriów</a>
